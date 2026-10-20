@@ -7,7 +7,6 @@
 <meta name="description" content="Saidia kujaribu programu mpya ya bure ya kisukari kwa Kiswahili. Help test a free new diabetes app. Bli tester av en gratis diabetesapp.">
 <meta property="og:title" content="Rafiki wa Kisukari – kuwa mjaribu / become a tester">
 <meta property="og:description" content="Programu ya bure ya kisukari kwa Kiswahili na Kiingereza. A free diabetes app in Swahili and English.">
-<meta property="og:image" content="https://mikk-glitc.github.io/rafiki-kisukari/rafiki-profilbilde.png">
 <style>
   :root { --teal:#0E7C86; --teal-dark:#095A61; --teal-soft:#E0F2F3; --orange:#F28C28; --orange-soft:#FDEEDF; --bg:#F3F6F7; --text:#142B33; --muted:#5C7078; --card:#fff; }
   * { box-sizing:border-box; }
@@ -16,7 +15,7 @@
   .langbar { display:flex; justify-content:center; gap:8px; margin-bottom:22px; }
   .langbar button { background:rgba(255,255,255,.15); color:#fff; border:1.5px solid rgba(255,255,255,.6); border-radius:999px; padding:6px 14px; font-weight:700; font-size:.95rem; cursor:pointer; }
   .langbar button[aria-pressed="true"] { background:#fff; color:var(--teal-dark); border-color:#fff; }
-  header img { width:84px; height:84px; border-radius:22px; display:block; margin:0 auto 12px; }
+  header .logo { width:84px; height:84px; display:block; margin:0 auto 12px; }
   header h1 { margin:0 0 6px; font-size:1.9rem; line-height:1.2; }
   header p { max-width:520px; margin:0 auto; font-size:1.08rem; opacity:.95; }
   main { max-width:620px; margin:-30px auto 0; padding:0 16px 40px; }
@@ -44,7 +43,7 @@
     <button data-lang="en">English</button>
     <button data-lang="nb">Norsk</button>
   </div>
-  <img src="rafiki-profilbilde.png" alt="Rafiki wa Kisukari">
+  <svg class="logo" viewBox="0 0 84 84" role="img" aria-label="Rafiki wa Kisukari"><rect width="84" height="84" rx="22" fill="#fff"/><path d="M42 14C42 14 22 38 22 52a20 20 0 0 0 40 0C62 38 42 14 42 14z" fill="#0E7C86"/><path d="M28 54h8l4-8 5 14 4-8h7" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <h1 data-t="title"></h1>
   <p data-t="lead"></p>
 </header>
