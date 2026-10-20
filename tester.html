@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="sw">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kuwa mjaribu – Rafiki wa Kisukari</title>
+<meta name="description" content="Saidia kujaribu programu mpya ya bure ya kisukari kwa Kiswahili. Help test a free new diabetes app. Bli tester av en gratis diabetesapp.">
+<meta property="og:title" content="Rafiki wa Kisukari – kuwa mjaribu / become a tester">
+<meta property="og:description" content="Programu ya bure ya kisukari kwa Kiswahili na Kiingereza. A free diabetes app in Swahili and English.">
+<meta property="og:image" content="https://mikk-glitc.github.io/rafiki-kisukari/rafiki-profilbilde.png">
+<style>
+  :root { --teal:#0E7C86; --teal-dark:#095A61; --teal-soft:#E0F2F3; --orange:#F28C28; --orange-soft:#FDEEDF; --bg:#F3F6F7; --text:#142B33; --muted:#5C7078; --card:#fff; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.6; }
+  header { background:var(--teal); color:#fff; padding:28px 16px 56px; text-align:center; }
+  .langbar { display:flex; justify-content:center; gap:8px; margin-bottom:22px; }
+  .langbar button { background:rgba(255,255,255,.15); color:#fff; border:1.5px solid rgba(255,255,255,.6); border-radius:999px; padding:6px 14px; font-weight:700; font-size:.95rem; cursor:pointer; }
+  .langbar button[aria-pressed="true"] { background:#fff; color:var(--teal-dark); border-color:#fff; }
+  header img { width:84px; height:84px; border-radius:22px; display:block; margin:0 auto 12px; }
+  header h1 { margin:0 0 6px; font-size:1.9rem; line-height:1.2; }
+  header p { max-width:520px; margin:0 auto; font-size:1.08rem; opacity:.95; }
+  main { max-width:620px; margin:-30px auto 0; padding:0 16px 40px; }
+  .card { background:var(--card); border-radius:18px; padding:20px; box-shadow:0 2px 8px rgba(20,43,51,.08); margin-bottom:14px; }
+  .step { display:flex; gap:14px; align-items:flex-start; }
+  .num { flex:none; width:36px; height:36px; border-radius:50%; background:var(--teal); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+  .step h2 { margin:2px 0 4px; font-size:1.15rem; color:var(--teal-dark); }
+  .step p { margin:0 0 12px; color:var(--muted); }
+  .btn { display:block; text-align:center; background:var(--orange); color:#fff; text-decoration:none; font-weight:800; font-size:1.05rem; padding:14px 18px; border-radius:14px; }
+  .btn.off { background:#C9D3D6; pointer-events:none; }
+  .soon { font-size:.9rem; color:var(--muted); margin-top:6px; text-align:center; }
+  ul { margin:6px 0 0; padding-left:20px; }
+  li { margin:4px 0; }
+  .note { background:var(--orange-soft); border-radius:16px; padding:16px 18px; font-size:.97rem; }
+  .share { background:var(--teal-soft); border-radius:16px; padding:16px 18px; text-align:center; }
+  .share a { color:var(--teal-dark); font-weight:800; }
+  footer { text-align:center; color:var(--muted); padding:8px 16px 36px; font-size:.92rem; }
+  a { color:var(--teal-dark); }
+</style>
+</head>
+<body>
+<header>
+  <div class="langbar" role="group" aria-label="Language">
+    <button data-lang="sw">Kiswahili</button>
+    <button data-lang="en">English</button>
+    <button data-lang="nb">Norsk</button>
+  </div>
+  <img src="rafiki-profilbilde.png" alt="Rafiki wa Kisukari">
+  <h1 data-t="title"></h1>
+  <p data-t="lead"></p>
+</header>
+
+<main>
+  <div class="card step">
+    <div class="num">1</div>
+    <div style="flex:1">
+      <h2 data-t="s1h"></h2>
+      <p data-t="s1p"></p>
+      <a id="groupBtn" class="btn" target="_blank" rel="noopener" data-t="s1b"></a>
+      <div id="groupSoon" class="soon" data-t="soon" hidden></div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="num">2</div>
+    <div style="flex:1">
+      <h2 data-t="s2h"></h2>
+      <p data-t="s2p"></p>
+      <a id="optinBtn" class="btn" target="_blank" rel="noopener" data-t="s2b"></a>
+      <div id="optinSoon" class="soon" data-t="soon" hidden></div>
+    </div>
+  </div>
+
+  <div class="card step">
+    <div class="num">3</div>
+    <div style="flex:1">
+      <h2 data-t="s3h"></h2>
+      <p data-t="s3p" style="margin:0"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 style="margin:0 0 4px;font-size:1.1rem;color:var(--teal-dark)" data-t="whatH"></h2>
+    <ul>
+      <li data-t="w1"></li>
+      <li data-t="w2"></li>
+      <li data-t="w3"></li>
+      <li data-t="w4"></li>
+    </ul>
+  </div>
+
+  <div class="note" data-t="needs"></div>
+
+  <p class="share"><span data-t="shareText"></span><br><a id="waShare" target="_blank" rel="noopener" data-t="shareBtn"></a></p>
+</main>
+
+<footer>
+  <span data-t="disclaimer"></span><br>
+  <a href="./" data-t="home"></a> · <a href="privacy.html" data-t="privacy"></a> · <a href="https://instagram.com/rafiki.wa.kisukari">@rafiki.wa.kisukari</a>
+</footer>
+
+<script>
+// ===== LIM INN LENKENE HER når de er klare (fra Google Groups og Play Console → Lukket testing → Testere) =====
+var GROUP_URL = '';   // f.eks. https://groups.google.com/g/rafiki-wa-kisukari-testers
+var OPTIN_URL = '';   // f.eks. https://play.google.com/apps/testing/com.diabetescompanion.app
+// ==========================================================================================================
+
+var T = {
+  sw: {
+    title: 'Kuwa mmoja wa wajaribu wa kwanza',
+    lead: 'Rafiki wa Kisukari ni programu mpya ya bure ya kuandika vipimo vya sukari na kujifunza kuishi vizuri na kisukari – kwa Kiswahili. Tunahitaji watu wa kuijaribu kwa siku 14 kabla haijafunguliwa kwa wote.',
+    s1h: 'Jiunge na kikundi cha wajaribu',
+    s1p: 'Bonyeza na uchague “Join group / Jiunge”. Tumia akaunti yako ya Gmail – ile ile ya Play Store.',
+    s1b: 'Jiunge na kikundi',
+    s2h: 'Kuwa mjaribu kwenye Google Play',
+    s2p: 'Fungua kiungo hiki kwenye simu yako ya Android na ubonyeze “Become a tester / Kuwa mjaribu”.',
+    s2b: 'Kuwa mjaribu',
+    s3h: 'Pakua na utumie kwa siku 14',
+    s3p: 'Pakua Rafiki wa Kisukari kutoka Play Store. Itumie kwa siku 14 na usiifute – hiyo ndiyo inayosaidia programu kufunguliwa kwa wote. Tuambie unachopenda na kinachopaswa kuboreshwa.',
+    soon: 'Kiungo kinakuja hivi karibuni – angalia tena kesho.',
+    whatH: 'Unachopata',
+    w1: 'Daftari rahisi la sukari, dawa, chakula na ketoni',
+    w2: 'Grafu na ripoti ya kupeleka kwa daktari',
+    w3: 'Makala kuhusu chakula, mazoezi na sukari ya chini na ya juu',
+    w4: 'Bure, bila kujisajili, data inabaki kwenye simu yako',
+    needs: '<b>Unahitaji:</b> simu ya Android na akaunti ya Gmail. Kwa sasa wajaribu wanatumia Android tu.',
+    shareText: 'Unamjua mtu anayeweza kusaidia?',
+    shareBtn: 'Shiriki kwenye WhatsApp',
+    wa: 'Saidia kujaribu Rafiki wa Kisukari – programu mpya ya bure ya kisukari kwa Kiswahili: ',
+    disclaimer: 'Si kifaa cha matibabu. Ongea na mhudumu wako wa afya kabla ya kubadilisha matibabu.',
+    home: 'Ukurasa wa mwanzo', privacy: 'Faragha'
+  },
+  en: {
+    title: 'Be one of the first testers',
+    lead: 'Rafiki wa Kisukari is a new free app to log blood sugar and learn to live well with diabetes – in Swahili and English. We need people to test it for 14 days before it opens for everyone.',
+    s1h: 'Join the tester group',
+    s1p: 'Tap the button and choose “Join group”. Use your Gmail account – the same one as in the Play Store.',
+    s1b: 'Join the group',
+    s2h: 'Become a tester on Google Play',
+    s2p: 'Open this link on your Android phone and tap “Become a tester”.',
+    s2b: 'Become a tester',
+    s3h: 'Install and use it for 14 days',
+    s3p: 'Install Rafiki wa Kisukari from the Play Store. Use it for 14 days and keep it installed – that is what lets the app open for everyone. Tell us what you like and what should be better.',
+    soon: 'The link is coming soon – check again tomorrow.',
+    whatH: 'What you get',
+    w1: 'A simple logbook for blood sugar, medicine, meals and ketones',
+    w2: 'Graphs and a report to bring to your doctor',
+    w3: 'Articles on food, activity, and low and high blood sugar',
+    w4: 'Free, no sign-up, your data stays on your phone',
+    needs: '<b>You need:</b> an Android phone and a Gmail account. Testing is Android only for now.',
+    shareText: 'Know someone who could help?',
+    shareBtn: 'Share on WhatsApp',
+    wa: 'Help test Rafiki wa Kisukari – a free new diabetes app in Swahili and English: ',
+    disclaimer: 'Not a medical device. Talk to your health worker before changing your treatment.',
+    home: 'Home', privacy: 'Privacy'
+  },
+  nb: {
+    title: 'Bli en av de første testerne',
+    lead: 'Rafiki wa Kisukari er en ny gratis app for å logge blodsukker og lære å leve godt med diabetes – laget for Øst-Afrika, også på norsk. Vi trenger folk som tester den i 14 dager før den åpnes for alle.',
+    s1h: 'Bli med i testgruppa',
+    s1p: 'Trykk på knappen og velg «Bli med i gruppen». Bruk Gmail-kontoen din – den samme som i Play Butikk.',
+    s1b: 'Bli med i gruppa',
+    s2h: 'Bli tester i Google Play',
+    s2p: 'Åpne lenken på Android-telefonen og trykk «Bli tester».',
+    s2b: 'Bli tester',
+    s3h: 'Installer og bruk den i 14 dager',
+    s3p: 'Installer Rafiki wa Kisukari fra Play Butikk. Bruk den i 14 dager og ikke avinstaller – det er det som gjør at appen kan åpnes for alle. Si gjerne fra hva du liker og hva som bør bli bedre.',
+    soon: 'Lenken kommer snart – sjekk igjen i morgen.',
+    whatH: 'Dette får du',
+    w1: 'En enkel loggbok for blodsukker, medisin, måltider og ketoner',
+    w2: 'Grafer og en rapport du kan ta med til legen',
+    w3: 'Artikler om mat, aktivitet og lavt og høyt blodsukker',
+    w4: 'Gratis, ingen innlogging, dataene blir på telefonen din',
+    needs: '<b>Du trenger:</b> en Android-telefon og en Gmail-konto. Testen er bare for Android foreløpig.',
+    shareText: 'Kjenner du noen som kan hjelpe?',
+    shareBtn: 'Del på WhatsApp',
+    wa: 'Hjelp til å teste Rafiki wa Kisukari – en ny gratis diabetesapp: ',
+    disclaimer: 'Ikke medisinsk utstyr. Snakk med helsepersonell før du endrer behandlingen.',
+    home: 'Forsiden', privacy: 'Personvern'
+  }
+};
+
+function pick() {
+  var q = (location.search.match(/[?&]lang=(sw|en|nb)/) || [])[1];
+  if (q) return q;
+  try { var s = localStorage.getItem('rafiki-tester-lang'); if (T[s]) return s; } catch (e) {}
+  return 'sw';
+}
+
+function setLang(l) {
+  var d = T[l];
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-t]').forEach(function (el) { el.innerHTML = d[el.getAttribute('data-t')]; });
+  document.querySelectorAll('.langbar button').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false'); });
+  link('groupBtn', 'groupSoon', GROUP_URL);
+  link('optinBtn', 'optinSoon', OPTIN_URL);
+  var page = location.origin + location.pathname;
+  document.getElementById('waShare').href = 'https://wa.me/?text=' + encodeURIComponent(d.wa + page + '?lang=' + l);
+  document.title = d.title + ' – Rafiki wa Kisukari';
+  try { localStorage.setItem('rafiki-tester-lang', l); } catch (e) {}
+}
+
+function link(btnId, soonId, url) {
+  var b = document.getElementById(btnId), s = document.getElementById(soonId);
+  if (url) { b.href = url; b.classList.remove('off'); s.hidden = true; }
+  else { b.removeAttribute('href'); b.classList.add('off'); s.hidden = false; }
+}
+
+document.querySelectorAll('.langbar button').forEach(function (b) {
+  b.addEventListener('click', function () { setLang(b.getAttribute('data-lang')); });
+});
+setLang(pick());
+</script>
+</body>
+</html>
